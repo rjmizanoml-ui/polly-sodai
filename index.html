@@ -863,27 +863,6 @@
         function closeSuccessModal() {
             document.getElementById('successModal').classList.add('hidden');
         }
- <script>
-  function submitOrder(event) {
-    event.preventDefault();
-
-    // ১. আপনার কপি করা Google Web App URL-টি নিচের লিংকের জায়গায় বসাবেন
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw4EMuO4ne6DUIB3FkyLr-SR8NVIRd6qruz5kKCderhZWFZnWhRYaH-h9W7mWOvUTAq0Q/exec'; 
-
-    const formData = new FormData();
-    formData.append('name', document.getElementById('custName').value);
-    formData.append('phone', document.getElementById('custPhone').value);
-
-    // গুগল শিটে ডেটা পাঠানো
-    fetch(scriptURL, { method: 'POST', body: formData })
-      .then(response => {
-        alert('ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে।');
-        document.getElementById('orderForm').reset();
-      })
-      .catch(error => {
-        alert('অর্ডার পাঠাতে সমস্যা হয়েছে, আবার চেষ্টা করুন।');
-      });
-  }
-</script>
+    </script>
 </body>
 </html>
