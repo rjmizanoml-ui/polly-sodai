@@ -139,7 +139,7 @@
                     </div>
                 </div>
                 <div class="relative flex justify-center">
-                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80" alt="খাঁটি পণ্য" class="rounded-2xl shadow-2xl object-cover h-52 md:h-72 w-full border-4 border-brandYellow/40">
+                    <img src="https://i.ibb.co/rJ0ZjdC/download-1.png" alt="খাঁটি পণ্য" class="rounded-2xl shadow-2xl object-cover h-52 md:h-72 w-full border-4 border-brandYellow/40">
                     <div class="absolute -bottom-3 -left-2 bg-white text-brandDark p-2.5 rounded-xl shadow-lg border border-gray-100 flex items-center gap-2">
                         <i class="fa-solid fa-award text-brandYellowDark text-2xl"></i>
                         <div>
@@ -863,6 +863,27 @@
         function closeSuccessModal() {
             document.getElementById('successModal').classList.add('hidden');
         }
-    </script>
+ <script>
+  function submitOrder(event) {
+    event.preventDefault();
+
+    // ১. আপনার কপি করা Google Web App URL-টি নিচের লিংকের জায়গায় বসাবেন
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw4EMuO4ne6DUIB3FkyLr-SR8NVIRd6qruz5kKCderhZWFZnWhRYaH-h9W7mWOvUTAq0Q/exec'; 
+
+    const formData = new FormData();
+    formData.append('name', document.getElementById('custName').value);
+    formData.append('phone', document.getElementById('custPhone').value);
+
+    // গুগল শিটে ডেটা পাঠানো
+    fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+        alert('ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে।');
+        document.getElementById('orderForm').reset();
+      })
+      .catch(error => {
+        alert('অর্ডার পাঠাতে সমস্যা হয়েছে, আবার চেষ্টা করুন।');
+      });
+  }
+</script>
 </body>
 </html>
